@@ -10,9 +10,9 @@ void swap(int* a1, int* b1)
 int main()
 {
 	int a = 10, b = 10;
-	printf("a= %d, b= &d \n", a, b);
+	printf("a= %d, b= %d \n", a, b);
 	swap(&a, &b);
-	printf("a= %d, b= &d \n", a, b);
+	printf("a= %d, b= %d \n", a, b);
 	return 0;
 
 }
