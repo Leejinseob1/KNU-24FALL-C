@@ -3,10 +3,11 @@
 
 int main()
 {
-    int N;
+    int N, max=0, min;
     int* st;
     char* name;
     int* score;
+    double av=0;
 
     printf("학생 수 입력: ");
     scanf_s("%d", &N);
@@ -27,8 +28,25 @@ int main()
         scanf_s("%d", &score[i]);
     }
 
+    min = score[0];
+
+    for (int i = 1; i < N; i++)
+    {
+        if (score[i] > max)
+            max = score[i];
+        if (score[i] < min)
+            min = score[i];
+        av += score[i];
+    }
+
+    av = av / N;
+
     for (int i = 0; i < N; i++)
         printf("%d %s %d \n", st[i], name + (i * 100), score[i]);
+
+    printf("최대 점수:%d \n", max);
+    printf("최소 점수:%d \n", min);
+    printf("평균 :%.1f \n", av);
 
     free(st);
     free(name);
