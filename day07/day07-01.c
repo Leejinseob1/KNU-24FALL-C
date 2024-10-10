@@ -2,7 +2,7 @@
 int main()
 {
 	int n = 0;
-	printf("¼ıÀÚ ÀÔ·Â:");
+	printf("ìˆ«ì ì…ë ¥:");
 	scanf_s("%d", &n);
 
 	for (int i = 0; i <= n; i++)
