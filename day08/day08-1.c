@@ -3,11 +3,12 @@
 
 int main()
 {
-	char sentence[100]= NULL;
 	E:
+	char sentence[100];
+	
 
 	printf("문자열을 입력하세요: ");
-	scanf_s("%s", sentence, sizeof(sentence));
+	scanf_s("%99s", sentence, sizeof(sentence));
 
 	int length = strlen(sentence);
 	char* start = sentence;
