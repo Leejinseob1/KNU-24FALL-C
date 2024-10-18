@@ -31,18 +31,29 @@ void printfArray(int array[SIZE][SIZE])
 	}
 }
 
-void movePointer(void* array[SIZE][SIZE])
+void movePointer(void* array)
 {
-	int x = 0, y = 0, n;
-	while(y<10)
+	int x = 0, y = 0;
+	int n;
+	int* ptr = (int*)array;
+
+	while (1)
 	{
-		printf("현재 위치 : (%d, %d), 배열의 값 : %d \n", x, y, array[x][y]);
-		n=array[x][y];
-		x=x+n;
-		if (x >= 10)
+		n = *(ptr + y * SIZE + x); 
+		printf("현재 위치: (%d, %d), 배열의 값: %d\n", x, y, n);
+
+		y = y + n; 
+
+		if (y >= SIZE)
 		{
-			x = x % 10;
-			y = y + 1;
+			y = y % SIZE; 
+			x = x + 1;    
+		}
+
+		if (x >= SIZE)
+		{
+			printf("더 이상 이동할 수 없습니다. 최종 위치: (%d, %d)\n", x-1, (y-n+20)%10);
+			break;
 		}
 	}
 }
