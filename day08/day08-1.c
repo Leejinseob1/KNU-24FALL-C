@@ -3,9 +3,9 @@
 
 int main()
 {
-	E:
+
 	char sentence[100];
-	
+	E:
 
 	printf("문자열을 입력하세요: ");
 	scanf_s("%99s", sentence, sizeof(sentence));
