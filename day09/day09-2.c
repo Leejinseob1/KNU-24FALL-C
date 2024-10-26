@@ -34,6 +34,7 @@ int main()
 		scanf_s("%s", p[i].Product_Name, 30);
 		printf("АЁАн: ");
 		scanf_s("%d", &p[i].Product_Price);
+		printf("\n");
 		i++;
 	}
 	printf("\n");
