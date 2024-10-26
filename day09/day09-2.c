@@ -10,7 +10,8 @@ struct Product {
 void printProduct(struct Product* p, int count)
 {
 	printf("<<입력된 상품 목록>>\n");
-	for (int j = 0; j < count; j++) {
+	for (int j = 0; j < count; j++) 
+	{
 		printf("상품 ID: %d\n", p[j].Product_ID);
 		printf("상품명: %s\n", p[j].Product_Name);
 		printf("가격: %d\n\n", p[j].Product_Price);
@@ -27,7 +28,8 @@ int main()
 		printf("상품 정보를 입력하세요 (입력 중단은 ID에 0을 입력)\n");
 		printf("상품 ID: ");
 		scanf_s("%d", &p[i].Product_ID);
-		if (p[i].Product_ID == 0) {
+		if (p[i].Product_ID == 0)
+		{
 			break;
 		}
 		printf("상품명: ");
