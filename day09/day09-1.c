@@ -83,10 +83,15 @@ int main()
 			printf("\n-------------------------\n");
 		}
 		else if (order == 5)
+		{
+			printf("프로그램을 종료합니다.\n");
+			printf("\n-------------------------\n");
 			break;
+		}
 		else
 		{
-			printf("잘못된 값");
+			printf("잘못된 값 \n");
+			printf("\n-------------------------\n");
 		}
 	}
 	return 0;
