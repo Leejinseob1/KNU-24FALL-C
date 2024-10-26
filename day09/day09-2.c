@@ -7,7 +7,6 @@ struct Product {
 	int Product_Price;
 };
 
-// 상품 정보를 출력하는 함수
 void printProduct(struct Product* p, int count)
 {
 	printf("<<입력된 상품 목록>>\n");
@@ -20,7 +19,7 @@ void printProduct(struct Product* p, int count)
 
 int main()
 {
-	struct Product p[5];  // 구조체 배열 선언
+	struct Product p[5];  
 	int i = 0;
 
 	while (i < 5)
@@ -39,7 +38,6 @@ int main()
 	}
 	printf("\n");
 
-	// 입력된 상품 수만큼 출력
 	printProduct(p, i);
 
 	return 0;
