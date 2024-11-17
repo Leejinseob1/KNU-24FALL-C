@@ -24,7 +24,8 @@ char* safe_strdup(const char* str) {
     return _strdup(str);
 }
 
-Customer* createCustomer(const char* name, Rank rank, int order_amount, int point) {
+Customer* createCustomer(const char* name, Rank rank, int order_amount, int point)
+{
     Customer* newCustomer = (Customer*)malloc(sizeof(Customer));
     newCustomer->customerName = safe_strdup(name);
     newCustomer->rank = rank;
@@ -35,25 +36,31 @@ Customer* createCustomer(const char* name, Rank rank, int order_amount, int poin
     return newCustomer;
 }
 
-void addCustomer(const char* name, Rank rank, int order_amount, int point) {
+void addCustomer(const char* name, Rank rank, int order_amount, int point)
+{
     Customer* newCustomer = createCustomer(name, rank, order_amount, point);
 
-    if (!head) {
+    if (!head)
+    {
         head = tail = newCustomer;
         return;
     }
 
     Customer* current = head;
-    while (current) {
+    while (current)
+    {
         if (current->rank > rank ||
             (current->rank == rank && current->order_amount < order_amount) ||
-            (current->rank == rank && current->order_amount == order_amount && current->point < point)) {
-            if (current == head) {
+            (current->rank == rank && current->order_amount == order_amount && current->point < point))
+        {
+            if (current == head)
+            {
                 newCustomer->next = head;
                 head->prev = newCustomer;
                 head = newCustomer;
             }
-            else {
+            else
+            {
                 newCustomer->prev = current->prev;
                 newCustomer->next = current;
                 current->prev->next = newCustomer;
@@ -64,17 +71,19 @@ void addCustomer(const char* name, Rank rank, int order_amount, int point) {
         current = current->next;
     }
 
-
     tail->next = newCustomer;
     newCustomer->prev = tail;
     tail = newCustomer;
 }
 
-void modifyCustomer(const char* name, Rank newRank, int newOrderAmount, int newPoint) {
+void modifyCustomer(const char* name, Rank newRank, int newOrderAmount, int newPoint)
+{
     Customer* current = head;
 
-    while (current) {
-        if (strcmp(current->customerName, name) == 0) {
+    while (current)
+    {
+        if (strcmp(current->customerName, name) == 0)
+        {
             current->rank = newRank;
             current->order_amount = newOrderAmount;
             current->point = newPoint;
@@ -93,17 +102,20 @@ void modifyCustomer(const char* name, Rank newRank, int newOrderAmount, int newP
     printf("입력되지 않은 이름입니다.\n");
 }
 
-void printCustomers() {
+void printCustomers()
+{
     Customer* current = head;
     printf("\n고객 리스트:\n");
-    while (current) {
+    while (current)
+    {
         printf("이름: %3s, 등급: %d등급, 주문 수: %3d, 포인트: %6d\n",
             current->customerName, current->rank, current->order_amount, current->point);
         current = current->next;
     }
 }
 
-void inputCustomer() {
+void inputCustomer()
+{
     char name[50];
     int rank, order_amount, point;
 
@@ -120,7 +132,8 @@ void inputCustomer() {
     printf("고객 정보 등록 완료.\n");
 }
 
-void inputModifyCustomer() {
+void inputModifyCustomer()
+{
     char name[50];
     int rank, order_amount, point;
 
@@ -135,7 +148,8 @@ void inputModifyCustomer() {
     modifyCustomer(name, (Rank)rank, order_amount, point);
 }
 
-void freeList() {
+void freeList()
+{
     Customer* current = head;
     while (current) {
         Customer* temp = current;
@@ -146,7 +160,8 @@ void freeList() {
     head = tail = NULL;
 }
 
-int main() {
+int main()
+{
     int choice;
     int i = 1;
 
@@ -160,7 +175,8 @@ int main() {
         printf("명령 선택: ");
         scanf_s("%d", &choice);
 
-        switch (choice) {
+        switch (choice)
+        {
         case 1:
             inputCustomer();
             break;
