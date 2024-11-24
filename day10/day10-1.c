@@ -120,7 +120,6 @@ int main()
 			scanf_s("%s", name, 50);
 			printf("Á¡¼ö : ");
 			scanf_s("%d", &score);
-
 			insert_node_priority(create_node(name, score));
 			break;
 		case 2:
