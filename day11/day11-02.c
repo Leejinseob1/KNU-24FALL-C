@@ -2,15 +2,18 @@
 #include <math.h>
 #include <stdint.h>
 
-double f(double x) {
+double f(double x)
+{
     return -log(1 / x) + sin(x);
 }
 
-double integrate(double a, double b, unsigned long long n) {
+double integrate(double a, double b, unsigned long long n)
+{
     double step = (b - a) / n;
     double sum = 0.0;
 
-    for (unsigned long long i = 0; i < n; i++) {
+    for (unsigned long long i = 0; i < n; i++)
+    {
         double x_left = a + i * step;
         double x_right = x_left + step; 
         double x_mid = (x_left + x_right) / 2;
@@ -19,7 +22,8 @@ double integrate(double a, double b, unsigned long long n) {
     return sum;
 }
 
-int main() {
+int main()
+{
     double a = 10.0;
     double b = 30.0;
     int j = 1;
