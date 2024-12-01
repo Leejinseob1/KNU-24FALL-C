@@ -3,32 +3,36 @@
 #include <stdlib.h>
 
 #define max_topping 10000
+
 // topping_len은 배열 topping의 길이입니다.
 int solution(int topping[], size_t topping_len) {
-    int answer = -1;
-    return answer;
-}
+    int left_tops[max_topping+1]={ 0, };
+    int right_tops[max_topping+1] = { 0, };
+    int num_left = 0;
+    int num_right = 0;
+    int num_fairs = 0;
 
-int main()
-{
-    int* chul[max_topping]={ 0 };
-    int* bro[max_topping] = { 0 };
-    int* left[max_topping] = { 0 };
-    int* right[max_topping] = { 0 };
-    int* cake[1000000] = {0};
-    int i, j = 0;
-    while (1)
-    {
-        printf("토핑을 입력하세요.");
-        scanf_s("%d", &i);
-        if (i == 0)
-            break;
-        cake[j] = i;
-        j++;
+    for (int i = 0; i < topping_len; i++) {
+        int top = topping[i];
+        if (right_tops[top] == 0)
+            num_right++;
+           right_tops[top]++;
     }
 
-    solution(cake, j);
-    return 0;
+    for (int i = 0; i < topping_len; i++) {
+        int top = topping[i];
+        right_tops[top]--;
+        if (right_tops[top] == 0)
+            num_right--;
+
+        if (left_tops[top] == 0)
+            num_left++;
+        left_tops[top]++;
+        if (num_left == num_right)
+            num_fairs++;
+    }
+
+    return num_fairs;
 }
 
 
